@@ -1,4 +1,4 @@
-function runGame() {
+function runGames() {
   let turn = 0;
   let bountyCards = [1, 2, 3, 4, 5, 6, 7, 8];
   let playerCards = [
@@ -9,8 +9,9 @@ function runGame() {
 
   function popRandom(arr) {
     const idx = Math.floor(Math.random() * arr.length);
+    const value = arr[idx];
     arr.splice(idx, 1);
-    return arr[idx];
+    return value;
   }
 
   function playRandomStrategy(playerCards) {
@@ -27,6 +28,30 @@ function runGame() {
 
   while (bountyCards.length > 0) {
     const bountyCard = popRandom(bountyCards);
+
     console.log(`Turn ${turn}: Bounty: ${bountyCard}`);
+
+    const card0 = playRandomStrategy(playerCards[0]);
+    const card1 = playEqualStrategy(playerCards[1], bountyCard);
+
+    turn += 1;
+
+    if (card0 > card1) {
+      playerScores[0] += bountyCard;
+    } else if (card0 < card1) {
+      playerScores[1] += bountyCard;
+    }
+  }
+
+  console.log(`Scores: ${playerScores[0]} v ${playerScores[1]}`);
+
+  if (playerScores[0] == playerScores[1]) {
+    console.log("Players Tie!");
+  } else if (playerScores[0] < playerScores[1]) {
+    console.log("Player 1 wins!");
+  } else {
+    console.log("Player 0 wins!");
   }
 }
+
+runGame();
