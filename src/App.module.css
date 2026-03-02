@@ -1,0 +1,28 @@
+/* App.module.css */
+.container {
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.inputSection {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.historySection {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
+
+.historyList {
+  list-style: none;
+  padding: 0;
+}
+
+.historyItem {
+  margin-bottom: 8px;
+  padding: 8px;
+  background: #f4f4f4;
+  border-radius: 4px;
+}
