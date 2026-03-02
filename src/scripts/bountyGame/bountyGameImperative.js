@@ -1,4 +1,4 @@
-function runGames() {
+function runGame() {
   let turn = 0;
   let bountyCards = [1, 2, 3, 4, 5, 6, 7, 8];
   let playerCards = [
